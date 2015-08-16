@@ -9,14 +9,17 @@
                     {{> afQuickField name="name"}}
                     <div class="map-container form-group">
                         <label class="control-label">Coordinates</label>
-                        {{> googleMap name="groupAddMap" options=exampleMapOptions}}
+                        Click to create a marker, thereafter drag it to the final position
+                        {{> googleMap name="groupAddMap" options=mapOptions}}
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    {{> afQuickField name="locationLatitude"}}
+                    {{> afQuickField name="locationLongitude"}}
+                    <button type="submit" class="btn btn-primary">Create</button>
                 {{/autoForm}}
+                {{#if feedbackGroupsAdd}}
+            		<div class="alert alert-{{feedbackGroupsAdd.type}}">{{feedbackGroupsAdd.message}}</div>
+        		{{/if}}
             </div>
         </div>
-        {{#if feedbackLogin}}
-		<div class="alert alert-{{feedbackLogin.type}}">{{feedbackLogin.message}}</div>
-		{{/if}}
     </div>
 </template>
