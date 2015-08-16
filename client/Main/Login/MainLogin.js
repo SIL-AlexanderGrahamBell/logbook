@@ -2,7 +2,7 @@
 var feedbackLogin = new ReactiveVar();
 
 Template.MainLogin.helpers({
-    schemaUserLogin: Schema.UserLogin,
+    schemaUserLogin: App.Schema.UserLogin,
     feedbackLogin: function() {
 		return feedbackLogin.get();
 	}

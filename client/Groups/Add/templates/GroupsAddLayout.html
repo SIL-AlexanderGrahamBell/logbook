@@ -1,0 +1,25 @@
+<template name="GroupsAdd">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">Create Group</div>
+            </div>
+            <div class="panel-body">
+                {{#autoForm schema=schemaGroupAdd validation="blur" id="form-group-add"}}
+                    {{> afQuickField name="name"}}
+                    <div class="map-container form-group">
+                        <label class="control-label">Coordinates</label>
+                        Click to create a marker, thereafter drag it to the final position
+                        {{> googleMap name="groupAddMap" options=mapOptions}}
+                    </div>
+                    {{> afQuickField name="locationLatitude"}}
+                    {{> afQuickField name="locationLongitude"}}
+                    <button type="submit" class="btn btn-primary">Create</button>
+                {{/autoForm}}
+                {{#if feedbackGroupsAdd}}
+            		<div class="alert alert-{{feedbackGroupsAdd.type}}">{{feedbackGroupsAdd.message}}</div>
+        		{{/if}}
+            </div>
+        </div>
+    </div>
+</template>
