@@ -1,7 +1,14 @@
 <template name="GroupsListMember">
-    {{#each groups}}
-        <li>{{name}}</li>
-    {{else}}
-        You don't have any groups.. yet!
-    {{/each}}
+    <table class="table">
+        <tbody>
+        {{#each groups}}
+            <tr>
+                <td>{{name}}</td>
+                <td><a href="/groups/edit/{{_id}}">Edit</a></td>
+            </tr>
+        {{else}}
+            You don't have any groups.. yet!
+        {{/each}}
+        </tbody>
+    </table>
 </template>

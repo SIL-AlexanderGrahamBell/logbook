@@ -1,8 +1,10 @@
 <template name="Main">
     {{> MainMenu}}
-    <div class="container">
-  	  <div id="main">
-  	    {{> yield}}
-  	  </div>
+    <div class="wrapper row-offcanvas">
+        <section class="content">
+            <div id="main">
+            {{> yield}}
+            </div>
+        </section>
     </div>
 </template>

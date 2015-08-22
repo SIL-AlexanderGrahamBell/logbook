@@ -1,15 +1,23 @@
 <template name="Groups">
-
-    <div class="col-xs-6 well">
-        <h2>Your groups</h2>
-        <div class="row">
-            <div class="col-xs-12">
-                {{> GroupsListMember}}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-success" href="/groups/join">Join Group</a>
+                    <a class="btn btn-success" href="/groups/add">Create New Group</a>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <a class="btn btn-success" href="/groups/add">Create New Group</a>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel">
+                        <header class="panel-heading">Your own groups</header>
+                        <div class="panel-body">
+                            {{> GroupsListMember}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
