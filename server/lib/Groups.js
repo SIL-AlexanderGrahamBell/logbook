@@ -29,11 +29,10 @@ Meteor.methods({
         var groups = [];
         App.Collections.Groups.find().fetch().forEach(function(group) {
             if (isOwner(group._id) || isMember(group._id)) {
+				group.isOwner = isOwner(group._id);
                 groups.push(group);
             }
         });
-
-        console.log(groups);
 
         return groups;
     }
@@ -59,13 +58,15 @@ var isOwner = function(groupId) {
  * @return {boolean}
  */
 var isMember = function(groupId) {
-    var group = App.Collections.Groups.findOne(groupId).fetch();
+    var group = App.Collections.Groups.findOne(groupId);
 
-    group.members.each(function(member) {
-        if (member === Meteor.userId()) {
-            return true;
-        }
-    });
+	if (group.members) {
+	    group.members.each(function(member) {
+	        if (member === Meteor.userId()) {
+	            return true;
+	        }
+	    });
+	}
 
     return false;
 };
