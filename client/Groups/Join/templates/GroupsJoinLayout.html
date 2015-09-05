@@ -1,16 +1,21 @@
 <template name="GroupsJoin">
-    <div class="col-sm-6 col-sm-offset-3">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title">Join Group</div>
-            </div>
-            <div class="panel-body">
-                {{#autoForm schema=schemaGroupJoin validation="blur" id="form-group-join"}}
-                    {{> afQuickField name="group" class="typeahead" data-source="groups" data-selected="selected" autocomplete="off" spellcheck="off"}}
-                    <button type="submit" class="btn btn-primary">Join</button>
-                {{/autoForm}}
-                {{> Feedback feedbackGroupsJoin}}
+    <section class="content-header">
+        <h1>Join Group</h1>
+    </section>
+    <section class="content">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Join Group</div>
+                </div>
+                <div class="panel-body">
+                    {{#autoForm schema=schemaGroupJoin validation="blur" id="form-group-join"}}
+                        {{> afQuickField name="group" class="typeahead" data-source="groups" data-selected="selected" autocomplete="off" spellcheck="off"}}
+                        <button type="submit" class="btn btn-primary">Join</button>
+                    {{/autoForm}}
+                    {{> Feedback feedbackGroupsJoin}}
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
