@@ -22,6 +22,7 @@ Meteor.methods({
 
         return App.Collections.Groups.insert(data);
     },
+
     /**
      * get list of groups where member (& owner)
      */
@@ -29,14 +30,22 @@ Meteor.methods({
         var groups = [];
         App.Collections.Groups.find().fetch().forEach(function(group) {
             if (isOwner(group._id) || isMember(group._id)) {
+				group.isOwner = isOwner(group._id);
                 groups.push(group);
             }
         });
 
-        console.log(groups);
-
         return groups;
-    }
+    },
+	"Groups:join": function(groupId) {
+		var group = App.Collections.Groups.findOne(groupId);
+		// throw error if already member
+		if (isOwner(groupId) || isMember(groupId)) {
+			throw new Meteor.Error("Already member of " + group.name);
+		}
+
+		App.Collections.Groups.update(groupId, {$push: { members: Meteor.userId()}});
+	}
 });
 
 /**
@@ -59,13 +68,20 @@ var isOwner = function(groupId) {
  * @return {boolean}
  */
 var isMember = function(groupId) {
-    var group = App.Collections.Groups.findOne(groupId).fetch();
+    var group = App.Collections.Groups.findOne(groupId);
 
-    group.members.each(function(member) {
-        if (member === Meteor.userId()) {
-            return true;
-        }
-    });
+	if (group.members) {
+		var isMemberFlag = false;
+	    group.members.forEach(function(member) {
+	        if (member === Meteor.userId()) {
+	            isMemberFlag = true;
+	        }
+	    });
+
+		if (isMemberFlag) {
+			return true;
+		}
+	}
 
     return false;
 };

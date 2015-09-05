@@ -1,0 +1,14 @@
+<template name="MainAuthenticated">
+    {{#AdminLTE skin="green"}}
+        {{> MainHeader}}
+        {{#if currentUser}}
+            {{> MainMenu}}
+        {{/if}}
+
+        <div class="{{#if currentUser}}content-wrapper{{/if}}">
+            <section class="content">
+                {{> yield}}
+            </section>
+        </div>
+    {{/AdminLTE}}
+</template>
