@@ -9,6 +9,7 @@ Router.route("/", {
  * login route
  */
 Router.route("/login", {
+    layout: "MainNotAuthenticated",
     name: "MainLogin"
 });
 

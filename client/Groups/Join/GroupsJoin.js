@@ -17,19 +17,7 @@ Template.GroupsJoin.helpers({
     },
     selected: function(event, suggestion, datasetName) {
         // setting id in data-id attribute
-        var groupId = $(event.target).attr('data-id', suggestion.id);
-
-        Meteor.call("Groups:join", groupId, function(error, result){
-            if(error){
-                error.type = "danger";
-                feedbackGroupsAdd.set(error);
-            }
-            if(result){
-                feedbackGroupsAdd.set({
-                    type: "success"
-                });
-            }
-        });
+        $(event.target).attr('data-id', suggestion.id);
     }
 });
 
@@ -39,7 +27,25 @@ Template.GroupsJoin.rendered = function() {
 
 Template.GroupsJoin.events({
     "submit #form-group-join": function(event) {
+        event.preventDefault();
 
-        console.log($(event.target.group).attr("data-id"));
+        var groupId = $(event.target.group).attr('data-id');
+
+        // exit when groupId empty
+        if (!groupId) {
+            return;
+        }
+
+        Meteor.call("Groups:join", groupId, function(error, result){
+            if (error) {
+                error.type = "danger";
+                feedbackGroupsJoin.set(error);
+                return;
+            }
+
+            feedbackGroupsJoin.set({
+                type: "success"
+            });
+        });
     }
 });

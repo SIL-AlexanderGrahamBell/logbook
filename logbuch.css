@@ -1,7 +1,4 @@
 /* CSS declarations go here */
-section.content {
-    margin-top: 50px;
-}
 
 .map-container {
     display: inline-block;
@@ -10,6 +7,13 @@ section.content {
     height: 500px;
 }
 
+.feedback {
+    margin: 10px 0px;
+}
+
+/**
+ * typeahead styling
+ */
 .typeahead,
 .tt-query,
 .tt-hint {

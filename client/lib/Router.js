@@ -2,7 +2,7 @@
  * Default Router Options
  */
 Router.configure({
-    layoutTemplate: 'Main'
+    layoutTemplate: 'MainAuthenticated'
 });
 
 /**

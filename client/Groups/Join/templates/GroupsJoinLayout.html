@@ -9,9 +9,7 @@
                     {{> afQuickField name="group" class="typeahead" data-source="groups" data-selected="selected" autocomplete="off" spellcheck="off"}}
                     <button type="submit" class="btn btn-primary">Join</button>
                 {{/autoForm}}
-                {{#if feedbackGroupsAdd}}
-            		<div class="alert alert-{{feedbackGroupsAdd.type}}">{{feedbackGroupsAdd.message}}</div>
-        		{{/if}}
+                {{> Feedback feedbackGroupsJoin}}
             </div>
         </div>
     </div>
