@@ -18,3 +18,10 @@ Router.route('/groups/add', {
 Router.route('/groups/join', {
     name: 'GroupsJoin'
 });
+
+/**
+ * Edit Group
+ */
+Router.route('/groups/edit/:id', {
+    name: 'GroupsEdit'
+})

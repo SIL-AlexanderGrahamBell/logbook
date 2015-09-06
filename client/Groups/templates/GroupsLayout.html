@@ -1,32 +1,37 @@
 <template name="Groups">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="box box-info">
-                        <div class="box-header"><h3 class="box-title">Groups you are a member of</h3></div>
-                        <div class="box-body">
-                            {{> GroupsListMember}}
-                        </div>
-                        <div class="box-footer">
-                            <a class="btn btn-success pull-right" href="/groups/join">Join Group</a>
+    <section class="content-header">
+        <h1>Groups</h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-info">
+                            <div class="box-header"><h3 class="box-title">Groups you are a member of</h3></div>
+                            <div class="box-body">
+                                {{> GroupsListMember}}
+                            </div>
+                            <div class="box-footer">
+                                <a class="btn btn-success pull-right" href="/groups/join">Join Group</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="box box-success">
-                        <div class="box-header"><h3 class="box-title">Your own groups</h3></div>
-                        <div class="box-body">
-                            {{> GroupsListOwner}}
-                        </div>
-                        <div class="box-footer">
-                            <a class="btn btn-success pull-right" href="/groups/add">Create New Group</a>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-success">
+                            <div class="box-header"><h3 class="box-title">Your own groups</h3></div>
+                            <div class="box-body">
+                                {{> GroupsListOwner}}
+                            </div>
+                            <div class="box-footer">
+                                <a class="btn btn-success pull-right" href="/groups/add">Create New Group</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>

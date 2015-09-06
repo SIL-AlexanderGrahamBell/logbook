@@ -2,7 +2,10 @@
  * Default Router Options
  */
 Router.configure({
-    layoutTemplate: 'MainAuthenticated'
+    layoutTemplate: 'Main',
+    onAfterAction: function() {
+        App.Actions.resize();
+    }
 });
 
 /**

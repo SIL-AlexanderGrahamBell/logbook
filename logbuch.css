@@ -1,5 +1,9 @@
 /* CSS declarations go here */
 
+.public {
+    background-color: #eeeeee;
+}
+
 .map-container {
     display: inline-block;
     width: 800px;

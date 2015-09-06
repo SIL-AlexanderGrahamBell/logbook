@@ -1,0 +1,12 @@
+<template name="Main">
+    {{#AdminLTE skin="blue"}}
+        {{> MainHeader}}
+        {{#if currentUser}}
+            {{> MainMenu}}
+        {{/if}}
+
+        <div class="{{#if currentUser}}content-wrapper{{else}}public{{/if}}">
+            {{> yield}}
+        </div>
+    {{/AdminLTE}}
+</template>

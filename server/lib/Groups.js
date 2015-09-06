@@ -23,6 +23,20 @@ Meteor.methods({
         return App.Collections.Groups.insert(data);
     },
 
+	/**
+     * edit group
+     * @param  {string} groupId
+     * @param  {any} data
+     * @return {int} number of updated records
+     */
+    "Groups:edit": function(groupId, data) {
+        if (!Meteor.userId() || !isOwner(groupId)) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        return App.Collections.Groups.update(groupId, {$set: data});
+    },
+
     /**
      * get list of groups where member (& owner)
      */
