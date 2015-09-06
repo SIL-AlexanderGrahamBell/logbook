@@ -1,0 +1,23 @@
+<template name="LogsAdd">
+    <section class="content-header">
+        <h1>Add Log</h1>
+    </section>
+    <section class="content">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Add Log</div>
+                </div>
+                <div class="panel-body">
+                    {{#autoForm schema=schemaLog validation="blur" id="form-group-add"}}
+                        {{> afQuickField name="address" type="googleplace"}}
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    {{/autoForm}}
+                    {{#if feedbackGroupsAdd}}
+                		<div class="alert alert-{{feedbackGroupsAdd.type}}">{{feedbackGroupsAdd.message}}</div>
+            		{{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

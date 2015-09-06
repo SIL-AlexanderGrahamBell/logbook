@@ -1,0 +1,14 @@
+<template name="LogsListOwner">
+    <table class="table">
+        <tbody>
+        {{#each groups}}
+            <tr>
+                <td>{{name}}</td>
+                <td><a href="/Logs/edit/{{_id}}">Edit</a></td>
+            </tr>
+        {{else}}
+            You don't have any groups.. yet!
+        {{/each}}
+        </tbody>
+    </table>
+</template>
