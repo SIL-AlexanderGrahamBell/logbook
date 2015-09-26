@@ -1,0 +1,13 @@
+<template name="GroupsListMember">
+    <table class="table">
+        <tbody>
+        {{#each groups}}
+            <tr>
+                <td>{{name}}</td>
+            </tr>
+        {{else}}
+            You don't have any groups.. yet!
+        {{/each}}
+        </tbody>
+    </table>
+</template>

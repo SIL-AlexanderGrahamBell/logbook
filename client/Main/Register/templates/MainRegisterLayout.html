@@ -1,20 +1,27 @@
 <template name="MainRegister">
-    <div class="col-xs-offset-4 col-xs-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Register</h3>
-            </div>
-            <div class="panel-body">
-                {{#autoForm schema=schemaUserRegistration validation="blur" id="form-register"}}
-                    {{> afQuickField name="email"}}
-                    {{> afQuickField name="password" type="password"}}
-                    {{> afQuickField name="passwordConfirmation" type="password"}}
-                    <button type="submit" class="btn btn-primary">Register</button>
-                {{/autoForm}}
+    <section class="content-header">
+        <h1>Register</h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Register</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{#autoForm schema=schemaUserRegistration validation="blur" id="form-register" type="insert"}}
+                            {{> afQuickField name="email"}}
+                            {{> afQuickField name="password" type="password"}}
+                            {{> afQuickField name="passwordConfirmation" type="password"}}
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        {{/autoForm}}
+                    </div>
+                </div>
+                {{#if feedbackRegister}}
+        		<div class="alert alert-{{feedbackRegister.type}}">{{feedbackRegister.message}}</div>
+        		{{/if}}
             </div>
         </div>
-        {{#if feedbackRegister}}
-		<div class="alert alert-{{feedbackRegister.type}}">{{feedbackRegister.message}}</div>
-		{{/if}}
-    </div>
+    </section>
 </template>

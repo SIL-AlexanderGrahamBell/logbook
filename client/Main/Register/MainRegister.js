@@ -2,7 +2,7 @@
 var feedbackRegister = new ReactiveVar();
 
 Template.MainRegister.helpers({
-    schemaUserRegistration: Schema.UserRegistration,
+    schemaUserRegistration: App.Schema.UserRegistration,
     feedbackRegister: function() {
 		return feedbackRegister.get();
 	}

@@ -1,3 +1,25 @@
 <template name="Dashboard">
-    Logged in!
+    <section class="content-header">
+        <h1>Dashboard</h1>
+    </section>
+    <section class="content">
+        <div class="col-sm-6">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-pencil"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Your Logs</span>
+                    <span class="info-box-number">{{myLogsNumber}}</span>
+                </div><!-- /.info-box-content -->
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-globe"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Unique Countries</span>
+                    <span class="info-box-number">{{myCountriesNumber}}</span>
+                </div><!-- /.info-box-content -->
+            </div>
+        </div>
+    </section>
 </template>

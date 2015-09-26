@@ -2,7 +2,7 @@
 var feedbackLogin = new ReactiveVar();
 
 Template.MainLogin.helpers({
-    schemaUserLogin: Schema.UserLogin,
+    schemaUserLogin: App.Schema.UserLogin,
     feedbackLogin: function() {
 		return feedbackLogin.get();
 	}
@@ -22,7 +22,7 @@ Template.MainLogin.events({
                 feedbackLogin.set(error);
                 return;
             }
-            Router.go("Dashboard");
+            Router.go("Intro");
         });
     }
 });
