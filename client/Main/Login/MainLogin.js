@@ -22,7 +22,7 @@ Template.MainLogin.events({
                 feedbackLogin.set(error);
                 return;
             }
-            Router.go("Dashboard");
+            Router.go("Intro");
         });
     }
 });

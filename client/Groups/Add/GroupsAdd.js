@@ -1,3 +1,4 @@
+SimpleSchema.debug = true
 var marker;
 var feedbackGroupsAdd = new ReactiveVar();
 
