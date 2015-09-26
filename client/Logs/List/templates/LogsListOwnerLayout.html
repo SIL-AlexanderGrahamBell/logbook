@@ -3,7 +3,9 @@
         <tbody>
         {{#each logs}}
             <tr>
-                <td>{{address}}</td>
+                <td>{{contactFullName}}</td>
+                <td>{{contactGroup}}</td>
+                <td>{{address.city}} / {{address.country}}</td>
                 <td><a href="/Logs/edit/{{_id}}">Edit</a></td>
             </tr>
         {{else}}

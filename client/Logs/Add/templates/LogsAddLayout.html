@@ -7,14 +7,68 @@
             <div class="col-sm-6">
                 <div class="box box-primary">
                     <div class="box-body">
-                        {{#autoForm schema=schemaLog validation="blur" id="form-logs-add"}}
-                            {{> afQuickField name="logtype"}}
-                            {{> afQuickField name="address" type="googleplace" opts=optsGoogleplace}}
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        {{/autoForm}}
-                        {{#if feedback}}
-                    		<div class="alert alert-{{feedback.type}}">{{feedback.message}}</div>
-                		{{/if}}
+                        {{#unless feedback.success}}
+                            {{#autoForm schema=schemaLog validation="blur" id="form-logs-add"}}
+                                {{> afQuickField name="logtype"}}
+                                {{> afQuickField name="address" type="googleplace" opts=optsGoogleplace}}
+                                {{> afQuickField name="contactFullName"}}
+                                {{> afQuickField name="contactGroup"}}
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            {{/autoForm}}
+                            {{#if feedback}}
+                                <br/>
+                        		<div class="alert alert-{{feedback.type}}">{{feedback.message}}</div>
+                    		{{/if}}
+                        {{else}}
+                        <div class="alert alert-success alert-dismissable">
+                            <h4><i class="icon fa fa-check"></i> Success!</h4>
+                            Log added successfully!
+                        </div>
+                        {{/unless}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <ul>
+                            <li>
+                                Internet IRC-Chat:
+                                <ul>
+                                    <li>
+                                        IRC (Scoutlink)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Internet Voice:
+                                <ul>
+                                    <li>
+                                        Teamspeak
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Internet Video:
+                                <ul>
+                                    <li>JOTA-JOTI Café
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Radio Voice:
+                                <ul>
+                                    <li>AM/FM/SSB</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Radio Digi:
+                                <ul>
+                                    <li>SSTV</li>
+                                    <li>PSK</li>
+                                    <li>RTTY</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

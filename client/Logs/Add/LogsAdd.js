@@ -19,7 +19,9 @@ Template.LogsAdd.events({
         // assembling data
         var data = {
             logtype: event.target.logtype.value,
-            address: event.target.address.value
+            address: AutoForm.getFieldValue('address', 'form-logs-add'),
+            contactFullName: event.target.contactFullName.value,
+            contactGroup: event.target.contactGroup.value
         };
 
         Meteor.call("Logs:add", data, function(error, result){
@@ -29,7 +31,7 @@ Template.LogsAdd.events({
             }
             if(result){
                 feedback.set({
-                    type: "success"
+                    success: true
                 });
             }
         });
