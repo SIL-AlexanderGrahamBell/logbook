@@ -20,6 +20,9 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+		data.createdAt = moment().toISOString();
+		data.owner = Meteor.userId();
+
         return App.Collections.Logs.insert(data);
     },
 
@@ -34,6 +37,7 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+		data.updatedAt = moment().toISOString();
         return App.Collections.Groups.update(logId, {$set: data});
     }
 });

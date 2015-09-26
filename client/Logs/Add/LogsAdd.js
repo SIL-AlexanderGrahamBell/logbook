@@ -16,16 +16,11 @@ Template.LogsAdd.events({
     "submit #form-logs-add": function(event) {
         event.preventDefault();
 
-        console.log(event);
-
         // assembling data
         var data = {
             logtype: event.target.logtype.value,
-            address: event.target.address.value,
-            owner: Meteor.userId()
+            address: event.target.address.value
         };
-
-        console.log(data);
 
         Meteor.call("Logs:add", data, function(error, result){
             if(error){

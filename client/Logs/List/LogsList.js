@@ -1,7 +1,7 @@
-Meteor.subscribe("Groups");
+Meteor.subscribe("Logs");
 
 Template.LogsListOwner.helpers({
-    groups: function() {
+    logs: function() {
         return App.Collections.Logs.find({owner: Meteor.userId()}).fetch();
     }
 });
