@@ -27,18 +27,30 @@ Meteor.methods({
     },
 
 	/**
-     * edit group
-     * @param  {string} groupId
+     * edit log
+     * @param  {string} logId
      * @param  {any} data
      * @return {int} number of updated records
      */
     "Logs:edit": function(logId, data) {
-        if (!Meteor.userId() || !isOwner(logId)) {
+        if (!isOwner(logId)) {
             throw new Meteor.Error("not-authorized");
         }
 
 		data.updatedAt = moment().toISOString();
-        return App.Collections.Groups.update(logId, {$set: data});
+        return App.Collections.Logs.update(logId, {$set: data});
+    },
+
+	/**
+     * remove log
+     * @param  {string} logId
+     */
+    "Logs:remove": function(logId) {
+        if (!logId || !isOwner(logId)) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        return App.Collections.Logs.remove(logId);
     }
 });
 
@@ -48,7 +60,7 @@ Meteor.methods({
  * @return {boolean}
  */
 var isOwner = function(logId) {
-    var log = App.Collections.Groups.findOne(logId);
+    var log = App.Collections.Logs.findOne(logId);
 
     if (log.owner === Meteor.userId()) {
         return true;

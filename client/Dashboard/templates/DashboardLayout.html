@@ -3,20 +3,23 @@
         <h1>Dashboard</h1>
     </section>
     <section class="content">
-        <div class="col-sm-3 text-center">
-            <h2><i class="fa fa-users"></i></h2>
-            <h4>Create or Join a Group</h4>
-            <p>Start with creating or joining a group. Multiple persons can join the same group and log their contacts together. This is perfect for big scout groups.</p>
+        <div class="col-sm-6">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-pencil"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Your Logs</span>
+                    <span class="info-box-number">{{myLogsNumber}}</span>
+                </div><!-- /.info-box-content -->
+            </div>
         </div>
-        <div class="col-sm-3 col-sm-offset-1 text-center">
-            <h2><i class="fa fa-plus"></i></h2>
-            <h4>Log a Contact</h4>
-            <p>You now should log your first contacts with other Guides or Scouts within your group! You can even leave some thoughts about the contact!</p>
-        </div>
-        <div class="col-sm-3 col-sm-offset-1 text-center">
-            <h2><i class="fa fa-line-chart"></i></h2>
-            <h4>See Statistics</h4>
-            <p>Always get uptodate statistics about your logged contacts. Which countries have you reached?</p>
+        <div class="col-sm-6">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-globe"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Unique Countries</span>
+                    <span class="info-box-number">{{myCountriesNumber}}</span>
+                </div><!-- /.info-box-content -->
+            </div>
         </div>
     </section>
 </template>
