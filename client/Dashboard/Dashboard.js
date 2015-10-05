@@ -10,3 +10,22 @@ Template.Dashboard.helpers({
         return uniqueCountryElement.length;
 	}
 });
+
+Template.Dashboard.onRendered(function() {
+    this.autorun(function(){
+        var data = App.Collections.Logs.find({}).fetch();
+        var rows = _.map(data, function(log) {
+            return [log.address.country];
+        });
+        var chart = {
+          target: 'countries',
+          type: 'GeoChart',
+          columns: [
+            ['string', 'Country']
+          ],
+          rows: rows
+        };
+
+        drawChart(chart);
+    }.bind(this));
+});
