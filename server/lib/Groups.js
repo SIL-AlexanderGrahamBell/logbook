@@ -59,6 +59,17 @@ Meteor.methods({
 		}
 
 		App.Collections.Groups.update(groupId, {$push: { members: Meteor.userId()}});
+	},
+	"Groups:logs": function(groupId) {
+		var group = App.Collections.Groups.findOne(groupId);
+
+		var groupUsers = [];
+		if (group["members"]) {
+			groupUsers.push(group.members);
+		}
+		groupUsers.push(group.owner);
+		console.log(groupUsers);
+		return App.Collections.Logs.find({ owner: { $in: groupUsers}}).fetch();
 	}
 });
 

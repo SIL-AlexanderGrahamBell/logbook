@@ -1,0 +1,20 @@
+<template name="StatisticsGroupsList">
+    <table class="table">
+        <tbody>
+        {{#each groups}}
+            <tr>
+                <td>
+                    <a href="statistics/groups/{{_id}}">
+                        {{name}}
+                        <div class="pull-right">
+                            <i class="fa fa-chevron-right"></i>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        {{else}}
+            There are no groups yet!
+        {{/each}}
+        </tbody>
+    </table>
+</template>
